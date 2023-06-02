@@ -1,0 +1,33 @@
+public privileged aspect MyTestAspect issingleton() {
+    pointcut debug_class(): within(test.MyVictim) && !within(MyTestAspect);
+
+    pointcut debug_constructor(): debug_class() && execution(new(..));
+    pointcut debug_method(): debug_class() && execution(* *(..));
+    pointcut debug_set(): debug_class() && (set(* *.*));
+    pointcut debug_get(): debug_class() && (get(* *.*));
+
+    before (): debug_constructor() {
+    System.err.println("={= " + thisJoinPointStaticPart.getSignature());
+    }
+    after(): debug_constructor() {
+    System.err.println("=}=} " + thisJoinPointStaticPart.getSignature());
+    }
+
+    before (): debug_method() {
+    System.err.println("={= " + thisJoinPointStaticPart.getSignature());
+    }
+    after() returning : debug_method() {
+    System.err.println("=}= " + thisJoinPointStaticPart.getSignature());
+    }
+    after() throwing : debug_method() {
+    System.err.println("=*= " + thisJoinPointStaticPart.getSignature());
+    }
+
+BROKEN HERE
+    after(): debug_set() {
+    System.err.println("=w= " + thisJoinPointStaticPart.getSignature());
+    }
+    after(): debug_get() {
+    System.err.println("=r= " + thisJoinPointStaticPart.getSignature());
+    }
+};
