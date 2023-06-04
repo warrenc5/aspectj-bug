@@ -61,7 +61,7 @@
                         </goals>
                         <configuration>
                             <skip>true</skip>
-                            <proc>only</proc>
+                            <proc>none</proc>
                             <annotationProcessors>
                                 <annotationProcessor>my.MyAnnotationProcessor</annotationProcessor>
                             </annotationProcessors>
@@ -86,9 +86,6 @@
                     <forceAjcCompile>true</forceAjcCompile>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <!--
-                    <proc>none</proc>
-                                        -->
                     <complianceLevel>1.8</complianceLevel>
                     <showWeaveInfo>true</showWeaveInfo>
                     <verbose>true</verbose>
