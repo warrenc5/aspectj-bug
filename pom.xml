@@ -7,27 +7,14 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <version.aspectj>1.9.19</version.aspectj> 
+        <version.aspectj>1.9.19</version.aspectj>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
-            <version>${version.aspectj}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${version.aspectj}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>${version.aspectj}</version>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -107,6 +94,13 @@
                     <verbose>true</verbose>
                     <proceedOnError>false</proceedOnError>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjtools</artifactId>
+                        <version>${version.aspectj}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
